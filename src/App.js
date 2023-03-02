@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./components/Header";
+import FirstStep from "./components/forms/FirstStep";
+import SecondStep from "./components/forms/SecondStep";
+import ThirdStep from "./components/forms/ThirdStep";
+import { FormState } from "./FormContext";
+import Alert from "./components/Alert";
+import DisplayData from "./components/DisplayData";
+import { Route, Routes } from "react-router-dom";
+import SingleUser from "./components/SingleUser";
 
 function App() {
+  const { currStep, finalData,alert } = FormState();
+  // console.log(currStep);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+
+      <p className="fs-1 text-center">Multi-Step Form </p>
+        {alert.open? <Alert/> : ""}
+      <Routes>
+      <Route path="/" element={currStep === 1 ? <FirstStep/> : currStep ===2 ? <SecondStep/> :<ThirdStep/>}/>
+      <Route path="/user/:useremail" element={<SingleUser/>}/>
+      <Route path="/display" element={<DisplayData/>}/>
+      </Routes>
+    </>
   );
 }
 
