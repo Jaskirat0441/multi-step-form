@@ -1,9 +1,8 @@
 import React from 'react'
 import { FormState } from '../../FormContext';
-import validator from 'validator';
 
 const FirstStep = () => {
-  const { currStep, setCurrStep,userData ,setUserData,alert,setAlert} = FormState();
+  const { currStep, setCurrStep,userData ,setUserData,setAlert} = FormState();
         // console.log(userData.name.length);
 
         const handleFirstStep =()=>{
@@ -55,7 +54,7 @@ const FirstStep = () => {
   return (
     <div className="container my-5">
       <div className="container">
-        <label for="customRange2" className="form-label">
+        <label htmlFor="customRange2" className="form-label">
              </label>
         <input
           type="range"
@@ -64,7 +63,7 @@ const FirstStep = () => {
           max="3"
           value={currStep}
           id="customRange2"
-        ></input>
+        />
       </div>
         <form>
   <div className="mb-3">

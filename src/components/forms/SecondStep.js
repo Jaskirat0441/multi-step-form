@@ -5,7 +5,7 @@ const SecondStep = () => {
   const { currStep, setCurrStep,userData,setUserData,setAlert} = FormState();
 
   const handleSecondStep =()=>{
-    if(!userData.phone || userData.phone.length !=10){
+    if(!userData.phone || userData.phone.length !==10){
       setAlert({
           open:true,
           message:"Fill Phone Number properly or length should be equal to 10",

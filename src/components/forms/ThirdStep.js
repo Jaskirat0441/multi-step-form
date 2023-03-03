@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FormState } from "../../FormContext";
 import isUrl from 'is-url';
 
@@ -10,8 +10,7 @@ const ThirdStep = () => {
     userData,
     setUserData,
     setAlert,
-    finalData,
-    setFinalData,
+    submitUserData,
   } = FormState();
 
   const submitForm = () => {
@@ -45,16 +44,19 @@ const ThirdStep = () => {
       type: "success",
     });
 
-    setFinalData(finalData=>[...finalData,userData]);
-    setUserData("");
+    submitUserData();
+
+    // setFinalData(finalData=>[...finalData,userData]);
+    // setUserData("");
     setCurrStep(1);
     // add data to local storage
     
-    console.log(finalData);
+    // console.log(finalData);
   };
-  useEffect(()=>{
-    localStorage.setItem("user-data",JSON.stringify(finalData));
-  },[finalData])
+  // useEffect(()=>{
+    // localStorage.setItem("user-data",JSON.stringify(finalData));
+  // },[finalData])
+
   return (
     <div className="container my-5">
       <div className="container">

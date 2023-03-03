@@ -11,8 +11,15 @@ const FormContext = ({children}) => {
         message:"",
         type:"success",
     })
+
+    const submitUserData = ()=>{
+      localStorage.setItem("user-data",JSON.stringify([...finalData,userData]));
+      setFinalData(finalData=>[...finalData,userData]);
+      setUserData("");
+      console.log(finalData);
+    }
   return (
-    <MultiStep.Provider  value={{currStep,setCurrStep,userData,setUserData,finalData,setFinalData,alert,setAlert}}>
+    <MultiStep.Provider  value={{currStep,setCurrStep,userData,setUserData,finalData,setFinalData,alert,setAlert,submitUserData}}>
         {children}
     </MultiStep.Provider>
   )

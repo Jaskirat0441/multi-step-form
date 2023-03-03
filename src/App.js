@@ -10,7 +10,7 @@ import { Route, Routes } from "react-router-dom";
 import SingleUser from "./components/SingleUser";
 
 function App() {
-  const { currStep, finalData,alert } = FormState();
+  const { currStep,alert } = FormState();
   // console.log(currStep);
   return (
     <>
